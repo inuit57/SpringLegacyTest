@@ -18,6 +18,8 @@ public class SampleController2 {
 	@RequestMapping("/doB1")
 	public String doB1() {
 		logger.info("doB1() 메서드 호출 ");
+		logger.info("String 타입 리턴 -> 리턴 결과.jsp 페이지 호출!"); 
+		
 		return "doB"; 
 	}
 }
