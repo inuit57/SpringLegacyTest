@@ -26,6 +26,9 @@ public class SampleController3 {
 		ProductVO vo = new ProductVO("Computer", 100.0);
 		model.addAttribute("pvo", vo); 
 		
+		// 키 값 없이 객체만 넘기는 경우 
+		model.addAttribute(vo);  
+		
 		logger.info("doC() 메서드 호출"); 
 		logger.info("productDetail.jsp 페이지로 이동"); 
 		return "productDetail" ; 
