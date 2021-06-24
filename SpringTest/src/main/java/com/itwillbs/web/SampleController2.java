@@ -47,6 +47,7 @@ public class SampleController2 {
 		logger.info("msg 정보 : " + msg);
 		logger.info("txt 정보 : " + txt); 
 		
+		// Spring에서는 자동으로 형변환을 시도한다.
 		return "result"; 
 	}
 
