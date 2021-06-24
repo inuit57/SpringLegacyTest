@@ -22,11 +22,14 @@ public class SampleController3 {
 
 		//request.setAttribute() 하던 것이 이런 식으로 바뀌었다고 알아두면 좋다.
 		//model.addAttribute("test", "12345");
-		
+		//model.addAttribute("key" , value); 
 		ProductVO vo = new ProductVO("Computer", 100.0);
 		model.addAttribute("pvo", vo); 
 		
 		// 키 값 없이 객체만 넘기는 경우 
+		// model.addAttribute(value); 
+		// => key 값이 없기 때문에 전달되는 타입의 클래스명
+		// 첫글자만 소문자로 변경해서 key 값으로 사용 가능
 		model.addAttribute(vo);  
 		
 		logger.info("doC() 메서드 호출"); 
