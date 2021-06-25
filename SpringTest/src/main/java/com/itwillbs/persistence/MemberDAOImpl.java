@@ -42,7 +42,16 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void insertMember(MemberVO vo) {
 		
+		System.out.println("DAOImpl 객체 - insertMember() 호출");
+		System.out.println("SqlSEssion 객체 생성 - mapper 접근");
 		
+		//sqlSession.insert(namespace); // sql 쿼리만 실행
+		//sqlSession.insert(namespace  , Object ); // sql 쿼리 + 쿼리에 필요한 값을 전달
+		
+		sqlSession.insert(namespace+".insertMember" ,  vo); 
+		
+		System.out.println("mapper 사용 -> DB 실행 ");
+		System.out.println("회원 가입 성공 -> TEST 파일로 이동 ");
 	}
 
 }
