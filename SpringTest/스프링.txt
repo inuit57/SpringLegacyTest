@@ -149,8 +149,8 @@
        	- DAO 인터페이스 객체 생성 
        	- 인터페이스에 기능을 정의 ( 추상 메서드 생성)
        	- XML Mapper 생성 , SQL 구문 작성 
-       		- XML 파일에 Mapper의 위치(저장경로)를 저장
        		- XML 파일에 DTD 추가
+       		- XML 파일에 Mapper의 위치(저장경로)를 저장
        		- SQL 구문 작성 
        	- MyBatis 사용하여 XML Mapper를 인식(연결)
        	- DAO 객체를 구현
