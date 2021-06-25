@@ -34,5 +34,18 @@
 	</bean>
 	<!-- SqlSessionFactory 객체 -->
 	
+	<!-- SqlSessionTemplate 객체 -->
+	<bean id="sqlSession" 
+		class ="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache"
+		>
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	
+	</bean>
+	<!-- SqlSessionTemplate 객체 -->
+	
+	
+	<!-- com.itwillbs.persistence 패키지의 DAO 객체들과 연결 -->
+	<context:component-scan base-package="com.itwillbs.persistence" />
 	
 </beans>
