@@ -28,6 +28,11 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<!-- mybatis 설정 정보 -->
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		
+		<!-- mapper 설정 정보 -->
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
 	<!-- SqlSessionFactory 객체 -->
+	
+	
 </beans>

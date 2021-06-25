@@ -153,10 +153,24 @@
        		- XML 파일에 Mapper의 위치(저장경로)를 저장
        		- SQL 구문 작성 
        	- MyBatis 사용하여 XML Mapper를 인식(연결)
+       		: SQLsessionFactory bean에 mapper 등록
+       		```
+       		<!-- mapper 설정 정보 -->
+			<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+			```
+			/**/ : 현재 폴더 경로 아래의 모든 폴더
+			/*Mapper.xml : Mapper.xml로 끝나는 모든 파일 
        	- DAO 객체를 구현
        	- 스프링에서 사용 (DAO 객체 생성, 테스트에서 호출) 
        	
+       	* Mapper 
+       	- namespace : mapper 위치를 저장 
+       	- id : 안에서 여러 SQL 구문 중에서 사용할 쿼리를 선택 
+       	- resultType : 어떤 형태로 값을 받아올지 설정(인터페이스에 미리 설정한 것과 맞추기) 
        	
+       	## 주의사항
+       	- 안에 주석달지 말기.
+       	- 내부 SQL 구문에서는 ";"을 사용하지 않는다.
        	
        		
        
