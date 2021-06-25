@@ -5,6 +5,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.MemberVO;
+
 // @Repository : 스프링에 DAO 파일을 인식한다.
 //				=> root-context.xml 에서 해당 객체를 bean으로 인식한다.
 
@@ -35,6 +37,12 @@ public class MemberDAOImpl implements MemberDAO {
 		// 제네릭 타입으로 리턴. mapper에서 설정한 타입으로 리턴. (캐스팅이 필요 없다)
 		
 		return result;
+	}
+	
+	@Override
+	public void insertMember(MemberVO vo) {
+		
+		
 	}
 
 }
