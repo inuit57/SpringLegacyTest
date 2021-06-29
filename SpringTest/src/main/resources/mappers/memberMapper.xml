@@ -14,4 +14,21 @@
  		insert into tbl_member(userid, userpw, username, useremail) 
  		values(#{userid} , #{userpw} , #{username} , #{useremail})
  	</insert>
+ 	
+ 	<select id="getMember" resultType="com.itwillbs.domain.MemberVO">
+ 		select * from tbl_member where userid = #{userid}  
+ 	</select>
+ 	
+ 	
+ 	<update id="updateMember">
+ 		update tbl_member
+ 		set userpw=#{userpw} , username=#{username},useremail=#{useremail}
+ 		where userid = #{userid}  
+ 	</update>
+ 	
+ 	<delete id="deleteMember" >
+ 		delete from tbl_member
+ 		where userid=#{userid} and userpw=#{userpw} ; 
+ 		
+ 	</delete>
  </mapper>

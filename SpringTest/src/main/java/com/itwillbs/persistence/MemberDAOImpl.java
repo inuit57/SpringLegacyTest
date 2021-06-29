@@ -54,4 +54,34 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("회원 가입 성공 -> TEST 파일로 이동 ");
 	}
 
+	@Override
+	public MemberVO getMember(String userid) {
+
+		System.out.println("DAO : getMember() 호출");
+		System.out.println("DAO : DB 연결(sqlSession), mapper로 이동. sql 실행");
+		
+		MemberVO vo = sqlSession.selectOne(namespace+".getMember" ,userid);
+		
+		System.out.println("DAO " + vo);
+		
+		return vo ; 
+	}
+
+	@Override
+	public void updateMember(MemberVO vo) {
+		System.out.println("DAO : updateMember() 호출");
+		System.out.println("DAO : DB연결(sqlSession) , mapper 호출, sql 실행");
+		
+		sqlSession.update(namespace+".updateMember", vo) ;
+	}
+
+	@Override
+	public void deleteMember(MemberVO vo) {
+
+		System.out.println("DAO : deleteMember() 호출");
+		System.out.println("DAO : DB연결(sqlSession) , mapper 호출, sql 실행");
+		
+		sqlSession.delete(namespace+".deleteMember", vo); 
+	}
+
 }

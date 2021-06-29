@@ -25,18 +25,18 @@ public class MemberDAOTest {
 	private MemberDAO mDAO ; 
 	
 	// DAO 객체 주입 확인
-	@Test
+	//@Test
 	public void testDAO() {
 		System.out.println("DAO : " + mDAO);
 	}
 	
-	@Test
+	//@Test
 	public void testGetTime() {
 		System.out.println("메서드 호출 테스트 ");
 		System.out.println(mDAO.getTime());
 	}
 	
-	@Test
+	//@Test
 	public void testInsertMember() {
 		System.out.println("insert 호출 테스트");
 		
@@ -51,4 +51,40 @@ public class MemberDAOTest {
 		System.out.println("객체 등록 완료 ");
 	}
 	
+	//@Test
+	public void testGetMember() {
+		System.out.println("select 테스트");
+		String userid = "admin"; 
+		
+		MemberVO vo = mDAO.getMember(userid); 
+		System.out.println(vo);
+	}
+	
+	//@Test
+	public void testUpdateMember() {
+		MemberVO vo = new MemberVO(); 
+		vo.setUserid("admin22");
+		vo.setUserpw("12345");
+		vo.setUsername("수정 이름");
+		vo.setUseremail("updateEMAIL@itwillbs.co.kr");
+		
+		mDAO.updateMember(vo); 
+	}
+	
+	//@Test
+	public void testDeleteMember() {
+		MemberVO vo = new MemberVO(); 
+		vo.setUserid("admin22");
+		vo.setUserpw("12345");
+		
+		mDAO.deleteMember(vo); 
+	}
+	
+	
+	//로그인 처리
+	@Test
+	public void testLogin() {
+		
+		
+	}
 }
