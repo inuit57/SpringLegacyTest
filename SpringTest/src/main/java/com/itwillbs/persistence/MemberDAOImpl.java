@@ -1,6 +1,7 @@
 package com.itwillbs.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -88,7 +89,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public void LoginMember(String loginId, String loginPw) {
+	public MemberVO LoginMember(String loginId, String loginPw) {
 
 		System.out.println("DAO : LoginMember() 호출 ");
 		
@@ -101,7 +102,18 @@ public class MemberDAOImpl implements MemberDAO {
 		paramMap.put("userid", loginId); 
 		paramMap.put("userpw", loginPw); 
 		
-		sqlSession.selectOne(namespace+".LoginMember",paramMap );
+		return sqlSession.selectOne(namespace+".loginMember",paramMap );
+	}
+
+	@Override
+	public List<MemberVO> getMemberList() {
+		
+		System.out.println("DAO : getMemberList() 호출 ");
+
+		// selectList 를 사용할 경우 mapper의 returnType은 List의 제네릭타입을 명시해주면 된다.
+		List<MemberVO> memberList = sqlSession.selectList(namespace +".getMemberList") ;
+		
+		return memberList; 
 	}
 
 }

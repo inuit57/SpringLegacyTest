@@ -1,5 +1,7 @@
 package com.itwillbs.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -82,15 +84,29 @@ public class MemberDAOTest {
 	
 	
 	//로그인 처리
-	@Test
+	//@Test
 	public void testLogin() {
 		
 		// id, pw 에 해당하는 회원 정보가 있을 경우 - 로그인 성공
 		// id, pw 에 해당하는 회원 정보가 없을 경우 - 로그인 실패
-		String loginId = "admin" ; 
+		String loginId = "admin11" ; 
 		String loginPw = "1234" ; 
 		
-		mDAO.LoginMember(loginId, loginPw); 
+		MemberVO loginVo = mDAO.LoginMember(loginId, loginPw); 
 		
+		if(loginVo != null) {
+			System.out.println("TEST : 로그인 성공!!@@@@@@@@@@@@@@@@");
+		}else {
+			System.out.println("TEST : 로그인 실패!!@@@@@@@@@@@@@@@@"); 
+		}
+	}
+	
+	// 회원 전체 목록 조회
+	@Test
+	public void testMemberList() {
+		System.out.println("TEST : 회원 전체 목록 조회! ");
+		
+		List<MemberVO> memberList =  mDAO.getMemberList();
+		System.out.println("Test : " + memberList);
 	}
 }

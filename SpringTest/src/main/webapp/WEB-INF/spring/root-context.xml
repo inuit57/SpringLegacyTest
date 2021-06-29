@@ -53,7 +53,9 @@
 	<!-- SqlSessionTemplate 객체 -->
 	
 	
-	<!-- com.itwillbs.persistence 패키지의 DAO 객체들과 연결 -->
+	<!-- com.itwillbs.persistence 패키지 연결 -->
 	<context:component-scan base-package="com.itwillbs.persistence" />
+	<!-- com.itwillbs.service 패키지 연결 -->
+	<context:component-scan base-package="com.itwillbs.service" />
 	
 </beans>

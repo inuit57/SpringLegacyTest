@@ -1,5 +1,7 @@
 package com.itwillbs.persistence;
 
+import java.util.List;
+
 import com.itwillbs.domain.MemberVO;
 
 public interface MemberDAO {
@@ -21,5 +23,7 @@ public interface MemberDAO {
 
 	public void deleteMember(MemberVO vo);
 
-	public void LoginMember(String loginId, String loginPw); 
+	public MemberVO LoginMember(String loginId, String loginPw);
+
+	public List<MemberVO> getMemberList(); 
 }

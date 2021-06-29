@@ -21,17 +21,23 @@
  	
  	
  	<update id="updateMember">
- 		update tbl_member
- 		set userpw=#{userpw} , username=#{username},useremail=#{useremail}
+ 		update tbl_member 
+ 		set userpw=#{userpw} , username=#{username},useremail=#{useremail} 
  		where userid = #{userid}  
  	</update>
  	
  	<delete id="deleteMember" >
- 		delete from tbl_member
- 		where userid=#{userid} and userpw=#{userpw} ; 
+ 		delete from tbl_member 
+ 		where userid=#{userid} and userpw=#{userpw}  
  	</delete>
  	
- 	<select id="loginMember" resultType="string">
-		select userid from tbl_member where userid=#{userid} and userpw=#{userpw}  	
+ 	<select id="loginMember" resultType="com.itwillbs.domain.MemberVO">
+		select *  
+		from tbl_member  
+		where userid=#{userid} and userpw=#{userpw}  	
+ 	</select>
+ 	
+ 	<select id="getMemberList" resultType="com.itwillbs.domain.MemberVO">
+ 		select * from tbl_member
  	</select>
  </mapper>
