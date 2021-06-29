@@ -85,6 +85,12 @@ public class MemberDAOTest {
 	@Test
 	public void testLogin() {
 		
+		// id, pw 에 해당하는 회원 정보가 있을 경우 - 로그인 성공
+		// id, pw 에 해당하는 회원 정보가 없을 경우 - 로그인 실패
+		String loginId = "admin" ; 
+		String loginPw = "1234" ; 
+		
+		mDAO.LoginMember(loginId, loginPw); 
 		
 	}
 }

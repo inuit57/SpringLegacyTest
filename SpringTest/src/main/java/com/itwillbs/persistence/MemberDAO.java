@@ -19,5 +19,7 @@ public interface MemberDAO {
 	public void updateMember(MemberVO vo);
 	
 
-	public void deleteMember(MemberVO vo); 
+	public void deleteMember(MemberVO vo);
+
+	public void LoginMember(String loginId, String loginPw); 
 }
