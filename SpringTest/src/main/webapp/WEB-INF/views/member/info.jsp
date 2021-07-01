@@ -46,6 +46,6 @@
 	</tr>
 	</table>
 	
-	<a href="./Main.me">메인으로 돌아가기</a>
+	<a href="./main">메인으로 돌아가기</a>
 </body>
 </html>

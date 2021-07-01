@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -118,7 +120,7 @@ public class MemberController {
 	
 	//회원 정보 조회(info)
 	@RequestMapping(value="/info" , method = RequestMethod.GET)
-	public void infoGET(HttpSession session , HttpServletRequest request) throws Exception{
+	public void infoGET(HttpSession session , Model model) throws Exception{
 		logger.info("C : infoGET() 호출"); 
 		logger.info("C : 회원 정보 페이지 호출!"); 
 		
@@ -127,7 +129,10 @@ public class MemberController {
 		// DB 회원 정보를 view 페이지로 이동 
 		
 		String id = (String)session.getAttribute("id") ; 
-		request.setAttribute("mdto",  mService.infoMember(id) );
+		//request.setAttribute("mdto",  mService.infoMember(id) );
+		
+		// model : 저장한 값을 view로 넘겨준다.
+		model.addAttribute("mdto", mService.infoMember(id)); 
 		
 		logger.info("페이지 이동  /views/member/info.jsp ");
 	}
