@@ -89,7 +89,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberVO LoginMember(String loginId, String loginPw) {
+	public MemberVO loginMember(String loginId, String loginPw) {
 
 		System.out.println("DAO : LoginMember() 호출 ");
 		

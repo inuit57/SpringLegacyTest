@@ -7,26 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- <h1> 로그인 </h1> -->
-<h2> 로그인 페이지 (model2) </h2>
+<h2> 로그인 페이지 (springMVC) </h2>
 
 	<fieldset>
 		<legend> 로그인 </legend>
-		<form action="./MemberLoginAction.me" method="post">
+		<form action="./login" method="post">
 			<table border="2">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id"></td>
+					<td><input type="text" name="userid"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" name="pass"></td>
+					<td><input type="password" name="userpw"></td>
 				</tr>
 				<tr>
 				<td colspan="2">
 						<input type="submit" value="로그인">
 						<input type="button" value="회원가입"
-							onclick="location.href='./MemberJoin.me';">	
+							onclick="location.href='./insert';">	
 				</td>
 				</tr>
 			</table>

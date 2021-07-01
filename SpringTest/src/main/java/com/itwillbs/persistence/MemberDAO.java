@@ -23,7 +23,7 @@ public interface MemberDAO {
 
 	public void deleteMember(MemberVO vo);
 
-	public MemberVO LoginMember(String loginId, String loginPw);
+	public MemberVO loginMember(String loginId, String loginPw);
 
 	public List<MemberVO> getMemberList(); 
 }

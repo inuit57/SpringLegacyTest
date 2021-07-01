@@ -26,15 +26,15 @@
         <td>이메일</td>
       </tr>
       <% for(int i =0 ; i< memberList.size() ; i++ ){
-		   MemberDTO dto = (MemberDTO) memberList.get(i);     	  
+// 		   MemberDTO dto = (MemberDTO) memberList.get(i);     	  
       %>
       <tr> 
-	      <td><%= dto.getId() %> </td>
-	      <td><%= dto.getName() %></td>
-	      <td><%= dto.getPass() %> </td>
-      	  <td><%= dto.getAge() %></td>
-      	  <td><%= dto.getGender() %> </td>
-      	  <td><%= dto.getEmail() %> </td>
+<%-- 	      <td><%= dto.getId() %> </td> --%>
+<%-- 	      <td><%= dto.getName() %></td> --%>
+<%-- 	      <td><%= dto.getPass() %> </td> --%>
+<%--       	  <td><%= dto.getAge() %></td> --%>
+<%--       	  <td><%= dto.getGender() %> </td> --%>
+<%--       	  <td><%= dto.getEmail() %> </td> --%>
       </tr>
       <%} %>
       

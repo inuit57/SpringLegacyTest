@@ -29,5 +29,30 @@ public class MemberServiceImpl implements MemberService{
 		System.out.println("S : 컨트롤러로 이동");
 	}
 
+	@Override
+	public MemberVO loginMember(MemberVO vo) throws Exception {
+
+		System.out.println("S : loginMember(MemberVO vo) 호출");
+		
+		MemberVO loginVO = mdao.loginMember(vo.getUserid(), vo.getUserpw()); 
+		return loginVO; 
+	}
+
+	@Override
+	public MemberVO loginMember(String loginID, String loginPW) throws Exception {
+		
+		System.out.println("S : loginMember(String loginID, String loginPW) 호출");
+		return mdao.loginMember(loginID, loginPW);
+		
+	}
+
+	@Override
+	public MemberVO getMember(String id) throws Exception {
+		System.out.println("S : getMemeber(String id) 호출");
+		MemberVO vo=  mdao.getMember(id);
+		 
+		return vo; 
+	}
+
 	
 }

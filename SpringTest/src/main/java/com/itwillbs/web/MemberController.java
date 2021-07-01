@@ -1,6 +1,7 @@
 package com.itwillbs.web;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,8 +62,67 @@ public class MemberController {
 	//로그인 페이지
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String loginGET() throws Exception{
+		logger.info("C: loginGET() 호출"); 
 		logger.info("C: 로그인 페이지 호출"); 
 		
-		return "" ; 
+		return "/member/loginForm" ; 
+	}
+	
+	// 로그인 처리 동작 (post) 
+	@RequestMapping(value="/login", method = RequestMethod.POST)
+	public String loginPOST(MemberVO vo , HttpSession session) throws Exception{
+		logger.info("C: loginPOST() 호출");
+		
+		// DB에 회원 정보가 있는지 체크
+		// O -> 메인 페이지 , 로그인 세션 생성 
+		// X -> 다시 로그인 페이지로 이동
+		
+		// 서비스 동작 호출 -> DAO -> (MyBatis)mapper -> DB
+		logger.info("C : 서비스 - loginMember() 호출 시도! " );
+		logger.info(vo.getUserid() + "@@@@@" + vo.getUserpw()); 
+		MemberVO loginVO = mService.loginMember(vo); 
+		
+		if(loginVO == null) {
+			// 비회원 / 비밀번호 오류
+			return "redirect:/member/login"; 
+		}
+		
+		// 회원 
+		// 로그인 세션 처리 (JSP 뷰 페이지에서 세션객체 전달 받아서 처리) 
+		// 인자로 HttpSession 객체를 넣어주면 알아서 받아온다.
+		session.setAttribute("id", loginVO.getUserid()); 
+		
+		return "redirect:/member/main" ; 
+	}
+	
+	//메인 페이지 (정보 조회)
+	@RequestMapping(value="/main", method = RequestMethod.GET)
+	public String mainGET() throws Exception{
+		logger.info("C: mainGET() 호출"); 
+		logger.info("C: 메인 페이지 호출"); 
+		
+		return "/member/main" ; 
+	}
+	
+	//로그아웃
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logoutGET(HttpSession session) throws Exception{
+		logger.info("C: logoutGET() 호출"); 
+		logger.info("C: 로그아웃 페이지 호출"); 
+		
+		session.invalidate(); 
+		
+		return "redirect:/member/main" ; 
+	}
+	
+	//회원 정보 조회(info)
+	@RequestMapping(value="/info" , method = RequestMethod.GET)
+	public void infoGET(HttpSession session) throws Exception{
+		logger.info("C : infoGET() 호출"); 
+		logger.info("C : 회원 정보 페이지 호출!"); 
+		
+		String id = (String)session.getAttribute("id") ; 
+		mService.getMember(id);
+		
 	}
 }

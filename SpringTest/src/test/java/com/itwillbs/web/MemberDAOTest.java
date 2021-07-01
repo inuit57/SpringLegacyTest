@@ -92,7 +92,7 @@ public class MemberDAOTest {
 		String loginId = "admin11" ; 
 		String loginPw = "1234" ; 
 		
-		MemberVO loginVo = mDAO.LoginMember(loginId, loginPw); 
+		MemberVO loginVo = mDAO.loginMember(loginId, loginPw); 
 		
 		if(loginVo != null) {
 			System.out.println("TEST : 로그인 성공!!@@@@@@@@@@@@@@@@");
