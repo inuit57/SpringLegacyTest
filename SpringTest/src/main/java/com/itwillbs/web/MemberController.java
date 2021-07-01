@@ -24,8 +24,10 @@ public class MemberController {
 	// 입력 : Get / 데이터 처리 : Post
 	
 	// 회원 가입 동작 
-	// 1) 회원 정보 입력 ( get )
+	// 1) 회원 정보 입력폼 ( get )
 	//@RequestMapping("/insert")
+	
+	// 2) 전달된 정보를 받아서 처리 (post) 
 	
 	// 이 메서드는 GET방식만 지원하겠다. -> POST로 들어오면 405 에러가 뜬다.
 	@RequestMapping(value="/insert", method = RequestMethod.GET)
@@ -48,9 +50,19 @@ public class MemberController {
 		mService.insertMember(vo); 
 		logger.info("회원 가입 성공!");
 		
-		return "/member/main"; 
+		// 페이지 이동 (login 페이지로 리다이렉트) 
+		return "redirect:/member/login"; 
 	}
 
 	// 이렇게 하면 둘 다 받아서 처리도 가능
 	//@RequestMapping(value="/insert", method = {RequestMethod.GET , RequestMethod.POST})
+	
+	
+	//로그인 페이지
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+	public String loginGET() throws Exception{
+		logger.info("C: 로그인 페이지 호출"); 
+		
+		return "" ; 
+	}
 }
