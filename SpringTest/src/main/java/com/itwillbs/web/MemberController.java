@@ -136,4 +136,33 @@ public class MemberController {
 		
 		logger.info("페이지 이동  /views/member/info.jsp ");
 	}
+	
+	
+	//업데이트 ( 기존 정보를 보여주기 ) 
+	@RequestMapping(value="/update", method = RequestMethod.GET)
+	public String updateGET(Model model, HttpSession session) throws Exception{
+		logger.info("C: updateGET() 호출"); 
+		logger.info("C: 업데이트 페이지 호출"); 
+		
+		String id = (String)session.getAttribute("id") ;
+		
+		// model : 저장한 값을 view로 넘겨준다.
+		model.addAttribute("mdto", mService.infoMember(id)); 
+			
+		logger.info("페이지 이동  /views/member/update.jsp ");
+		
+		return "/member/updateForm"; 
+	}
+	
+	//업데이트 ( 기존 정보를 보여주기 ) 
+	@RequestMapping(value="/update", method = RequestMethod.POST)
+	public String updatePOST(MemberVO vo) throws Exception{
+		logger.info("C: updatePOST() 호출"); 
+		logger.info("C: 업데이트 페이지 호출"); 
+
+		mService.updateMember(vo); 
+		logger.info("페이지 이동  /views/member/main.jsp ");
+		
+		return "redirect:./main";
+	}
 }

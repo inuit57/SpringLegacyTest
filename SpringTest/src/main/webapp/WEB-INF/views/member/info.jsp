@@ -15,7 +15,7 @@
 <body>
 
 
-<h1>member/info.jsp(Model2)</h1>
+<h1>member/info.jsp(springMVC)</h1>
 
 <h2> 회원 정보 조회 </h2>
 

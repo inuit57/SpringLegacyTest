@@ -54,5 +54,12 @@ public class MemberServiceImpl implements MemberService{
 		return mdao.getMember(id); 
 	}
 
+	@Override
+	public void updateMember(MemberVO vo) {
+		System.out.println("S : updateMember(vo) 호출");
+		System.out.println("VO : "+ vo);
+		mdao.updateMember(vo);
+	}
+
 	
 }
