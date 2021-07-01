@@ -15,5 +15,5 @@ public interface MemberService {
 	public MemberVO loginMember(String loginID, String loginPW) throws Exception;
 	
 	//유저 정보 조회
-	public MemberVO getMember(String id) throws Exception; 
+	public MemberVO infoMember(String id) throws Exception; 
 }

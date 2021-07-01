@@ -47,11 +47,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberVO getMember(String id) throws Exception {
+	public MemberVO infoMember(String id) throws Exception {
 		System.out.println("S : getMemeber(String id) 호출");
-		MemberVO vo=  mdao.getMember(id);
+		//MemberVO vo=  mdao.getMember(id);
 		 
-		return vo; 
+		return mdao.getMember(id); 
 	}
 
 	

@@ -1,6 +1,7 @@
 package com.itwillbs.web;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -117,12 +118,17 @@ public class MemberController {
 	
 	//회원 정보 조회(info)
 	@RequestMapping(value="/info" , method = RequestMethod.GET)
-	public void infoGET(HttpSession session) throws Exception{
+	public void infoGET(HttpSession session , HttpServletRequest request) throws Exception{
 		logger.info("C : infoGET() 호출"); 
 		logger.info("C : 회원 정보 페이지 호출!"); 
 		
-		String id = (String)session.getAttribute("id") ; 
-		mService.getMember(id);
+		// DB에 회원 정보를 가져오는 동작 
 		
+		// DB 회원 정보를 view 페이지로 이동 
+		
+		String id = (String)session.getAttribute("id") ; 
+		request.setAttribute("mdto",  mService.infoMember(id) );
+		
+		logger.info("페이지 이동  /views/member/info.jsp ");
 	}
 }

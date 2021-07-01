@@ -22,35 +22,28 @@
 	<table border="1">
 	<tr>
 		<td>아이디</td>
-		<td>${mdto.id }</td>
-<%-- 		<td><%=mb.getId() %> </td> --%>
+		<td>${mdto.userid }</td>
 	</tr>
 	<tr>
 		<td>비밀번호</td>
-		<td>${mdto.pass }</td>
-<%-- 		<td><%=mb.getPw() %></td> --%>
+		<td>${mdto.userpw }</td>
 	</tr>
 	<tr>
-		<td>나이</td>
-		<td>${mdto.age }</td>
-<%-- 		<td><%=mb.getAge() %></td> --%>
-	</tr>
-	<tr>
-		<td>성별</td>
-		<td>${mdto.gender }</td>
-<%-- 		<td><%=mb.getGender() %></td> --%>
+		<td>이름</td>
+		<td>${mdto.username }</td>
 	</tr>
 	<tr>
 		<td>이메일</td>
-		<td>${mdto.email }</td>
-<%-- 		<td><%=mb.getEmail() %></td> --%>
+		<td>${mdto.useremail }</td>
 	</tr>
 	<tr>
 		<td>회원가입일</td>
-		<td>${mdto.reg_date }</td>
-<%-- 		<td><%=mb.getRegdate() %></td> --%>
+		<td>${mdto.regdate }</td>
 	</tr>
-
+	<tr>
+		<td>최종수정일</td>
+		<td>${mdto.updateDate }</td>
+	</tr>
 	</table>
 	
 	<a href="./Main.me">메인으로 돌아가기</a>
