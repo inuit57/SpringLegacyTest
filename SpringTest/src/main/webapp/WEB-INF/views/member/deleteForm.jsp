@@ -15,16 +15,15 @@
     String id = (String)session.getAttribute("id");
   
     if(id == null){
-    	response.sendRedirect("./MemberLogin.me");
+    	response.sendRedirect("./login");
     }
     // 아이디/ 비밀번호를 입력받아서 정보를 삭제처리하는 페이지로 전달
   %>
   
   <h2> 회원 탈퇴(삭제) : MODEL2 </h2>
-  <form action="./MemberDeleteAction.me"  method="post">
-    
-	  <input type="hidden" name="id" value="${id }">  
-    비밀번호 : <input type="password" name="pass"><br>
+  <form action="./delete"  method="post">
+	<input type="hidden" name="userid" value="${id }">  
+    비밀번호 : <input type="password" name="userpw"><br>
     <hr>
     <input type="submit" value="삭제하기">
   

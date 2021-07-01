@@ -165,4 +165,28 @@ public class MemberController {
 		
 		return "redirect:./main";
 	}
+	
+	
+	// 회원 탈퇴 구현
+	@RequestMapping(value="/delete", method = RequestMethod.GET)
+	public String deleteGET(HttpSession session) throws Exception{
+		logger.info("C: deleteGET() 호출"); 
+		logger.info("C: 회원 탈퇴 페이지 호출"); 
+		
+		String id = (String)session.getAttribute("id") ;
+		
+		return "/member/deleteForm"; 
+	}
+	
+	// 회원 탈퇴 구현
+	@RequestMapping(value="/delete", method = RequestMethod.POST)
+	public String deletePOST(MemberVO vo , HttpSession session) throws Exception{
+		logger.info("C: deletePOST() 호출"); 
+		logger.info("C: 회원 탈퇴 페이지 호출"); 
+		
+		mService.deleteMember(vo); 
+		session.invalidate(); 
+		
+		return "redirect:./main"; 
+	}
 }

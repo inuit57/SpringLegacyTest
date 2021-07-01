@@ -17,5 +17,7 @@ public interface MemberService {
 	//유저 정보 조회
 	public MemberVO infoMember(String id) throws Exception;
 
-	public void updateMember(MemberVO vo); 
+	public void updateMember(MemberVO vo);
+
+	public void deleteMember(MemberVO vo); 
 }
