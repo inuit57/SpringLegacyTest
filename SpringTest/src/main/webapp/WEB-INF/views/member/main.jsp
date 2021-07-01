@@ -35,10 +35,10 @@
 	<h3><a href="./info">회원 정보 조회</a></h3>
 	
 	
-	<h3><a href="./MemberUpdate.me">회원 정보 수정</a></h3>
+	<h3><a href="./update">회원 정보 수정</a></h3>
 	
 	
-	<h3><a href="./MemberDelete.me">회원 정보 탈퇴(삭제)</a></h3>
+	<h3><a href="./delete">회원 정보 탈퇴(삭제)</a></h3>
 	
 	<hr>
 	
