@@ -1,5 +1,7 @@
 package com.itwillbs.service;
 
+import java.util.List;
+
 import com.itwillbs.domain.MemberVO;
 
 public interface MemberService {
@@ -17,7 +19,9 @@ public interface MemberService {
 	//유저 정보 조회
 	public MemberVO infoMember(String id) throws Exception;
 
-	public void updateMember(MemberVO vo);
+	public void updateMember(MemberVO vo) throws Exception;
 
-	public void deleteMember(MemberVO vo); 
+	public void deleteMember(MemberVO vo) throws Exception; 
+	
+	public List<MemberVO> listMember() throws Exception; 
 }

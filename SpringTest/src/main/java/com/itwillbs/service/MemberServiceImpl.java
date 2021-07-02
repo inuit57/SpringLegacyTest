@@ -1,5 +1,7 @@
 package com.itwillbs.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -55,17 +57,24 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void updateMember(MemberVO vo) {
+	public void updateMember(MemberVO vo) throws Exception{
 		System.out.println("S : updateMember(vo) 호출");
 		System.out.println("VO : "+ vo);
 		mdao.updateMember(vo);
 	}
 
 	@Override
-	public void deleteMember(MemberVO vo) {
+	public void deleteMember(MemberVO vo) throws Exception{
 
 		System.out.println();
 		mdao.deleteMember(vo);
+	}
+
+	@Override
+	public List<MemberVO> listMember() throws Exception {
+		
+		System.out.println("S : listMember() 호출");
+		return mdao.getMemberList();
 	}
 
 	

@@ -12,43 +12,23 @@
 	<h1>WebContent/member/list.jsp</h1>
 	<h2>회원목록을 확인 (관리자) : Model2 </h2>
 
-	<%
-		List memberList = (List)request.getAttribute("memberList"); 
-	%>
-
     <table border="1">
       <tr>
       	<td>아이디</td>
         <td>이름</td>
         <td>비밀번호</td>
-        <td>나이</td>
-        <td>성별</td>
         <td>이메일</td>
+        <td>회원가입일</td>
       </tr>
-      <% for(int i =0 ; i< memberList.size() ; i++ ){
-// 		   MemberDTO dto = (MemberDTO) memberList.get(i);     	  
-      %>
+      <c:forEach var="member" items="${memberList }">
       <tr> 
-<%-- 	      <td><%= dto.getId() %> </td> --%>
-<%-- 	      <td><%= dto.getName() %></td> --%>
-<%-- 	      <td><%= dto.getPass() %> </td> --%>
-<%--       	  <td><%= dto.getAge() %></td> --%>
-<%--       	  <td><%= dto.getGender() %> </td> --%>
-<%--       	  <td><%= dto.getEmail() %> </td> --%>
+      	<td>${member.userid }</td>
+      	<td>${member.username }</td>
+      	<td>${member.userpw }</td>
+      	<td>${member.useremail }</td>
+      	<td>${member.regdate }</td>
       </tr>
-      <%} %>
-      
-      <!--  
-      	암호화 : sha256 ? 
-       -->
-       
-       
-<%--       <c:forEach items="${memberList }" var="curr" step="1"> --%>
-<!--       <tr> -->
-<%--       	<td>${curr.name }</td> --%>
-<%--       	<td>${curr.pass}</td> --%>
-<!--       </tr> -->
-<%--       </c:forEach> --%>
+      </c:forEach>
     </table>
 
 

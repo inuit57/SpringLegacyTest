@@ -1,5 +1,7 @@
 package com.itwillbs.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -189,4 +191,16 @@ public class MemberController {
 		
 		return "redirect:./main"; 
 	}
+	
+	// 관리자 기능 - 회원 목록 확인
+	@RequestMapping(value="/list" , method = RequestMethod.GET)
+	public void listGET(Model model) throws Exception{
+		logger.info("C: listGET() 호출"); 
+		
+		List<MemberVO> memberList =  mService.listMember();
+		
+		model.addAttribute("memberList", memberList); 
+		
+	}
+
 }
