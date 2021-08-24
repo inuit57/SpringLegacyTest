@@ -19,7 +19,6 @@ public interface MemberDAO {
 
 	//회원 정보 수정
 	public void updateMember(MemberVO vo);
-	
 
 	public void deleteMember(MemberVO vo);
 
